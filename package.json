@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "ts-node src/index.ts"
+    "dev": "ts-node src/index.ts",
+    "seed": "ts-node --esm prisma/seed.ts"
   },
   "repository": {
     "type": "git",
@@ -18,11 +20,13 @@
   },
   "homepage": "https://github.com/akr-38/canteen-managment-backend#readme",
   "dependencies": {
+    "@prisma/client": "^6.16.3",
     "express": "^5.1.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
     "@types/node": "^24.6.2",
+    "prisma": "^6.16.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
