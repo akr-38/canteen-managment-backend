@@ -4,3 +4,5 @@ services:
     container_name: canteen-backend
     ports:
       - "3000:3000"
+    env_file:
+      - .env

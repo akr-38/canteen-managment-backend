@@ -7,10 +7,8 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    // "types": [],
-    // For nodejs:
+    "module": "nodenext", // ✅ Good for ESM + TSX
+    "target": "es2020", // ✅ Safer target for Node 18+ (modern features)
     "lib": ["esnext"],
     "types": ["node"],
     // and npm install -D @types/node
@@ -24,7 +22,7 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
 
-    // Style Options
+    // Style Options — optional stricter flags you can enable later
     // "noImplicitReturns": true,
     // "noImplicitOverride": true,
     // "noUnusedLocals": true,
@@ -34,12 +32,14 @@
 
     // Recommended Options
     "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": false,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true
+    // "jsx": "react-jsx",           // ❌ Not needed for backend
+    // "verbatimModuleSyntax": false, // ❌ Not needed, default behavior is fine
+    // "isolatedModules": true,      // ⚠️ Optional; can cause issues with tsx sometimes
+    // "noUncheckedSideEffectImports": true, // ❌ Unnecessary strictness
+    // "moduleDetection": "force",   // ❌ Default auto-detection works better
+    "esModuleInterop": true, // ✅ Add this for smoother CommonJS interop
+    "skipLibCheck": true // ✅ Always good for faster builds
   },
-  "include": ["src", "prisma"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "prisma"]
 }
