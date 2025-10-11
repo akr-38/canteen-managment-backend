@@ -37,6 +37,8 @@ model MenuItem {
   store_id     Int
   name         String
   price        Float
+  status       ItemStaus @default(AVAILABLE)
+  
   store        Store       @relation(fields: [store_id], references: [store_id])
   order_items  OrderItem[]
 }
@@ -60,7 +62,7 @@ model OrderItem {
   order_id     Int
   menu_item_id Int
   quantity     Int
-
+  
   order     Order    @relation(fields: [order_id], references: [order_id])
   menu_item MenuItem @relation(fields: [menu_item_id], references: [menu_item_id])
 
@@ -70,6 +72,11 @@ model OrderItem {
 enum StoreStatus {
   OPEN
   CLOSED
+}
+
+enum ItemStaus{
+  AVAILABLE
+  OUT_OF_STOCK
 }
 
 enum OrderStatus {
