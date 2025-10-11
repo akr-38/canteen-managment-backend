@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import prisma from "../prisma/client.js";
+import prisma from "../config/prisma_client.js";
 
 // Add menu item to store
 export const addMenuItem = async (req: Request, res: Response) => {

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import prisma from "../prisma/client.js";
+import prisma from "../config/prisma_client.js";
 
 // List all stores
 export const listStores = async (req: Request, res: Response) => {
