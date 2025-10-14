@@ -4,8 +4,8 @@ import jwt from "jsonwebtoken";
 interface JwtPayload {
   customer_id: number;
   phone_no: string;
-  course: string;
-  college: string;
+  course: string | null; // allow null
+  college: string | null; // allow null
   name: string;
 }
 
